@@ -6,6 +6,7 @@ import java.util.Scanner;
 //TODO: Test the class with JUnit
 public class UserInput {
 
+    private String domain;
     private String URL;
     private byte depth;
     private String targetLanguage;
@@ -14,6 +15,9 @@ public class UserInput {
     private Prompt prompt = new Prompt();
     private Scanner scanner = new Scanner(System.in);
 
+    private void setDomain(){
+        this.domain=getValidDomain();
+    }
     private void setURL () throws MalformedURLException, URISyntaxException {
         this.URL= getValidURL();
     }
@@ -26,6 +30,18 @@ public class UserInput {
         this.targetLanguage= getValidTargetLanguage();
     }
 
+    private String getValidDomain(){
+        String userInputDomain;
+        boolean isValidDomain;
+        do{
+            userInputDomain = scanner.next();
+            isValidDomain= userInputValidation.isValidDomain(userInputDomain);
+            if(!isValidDomain){
+                System.out.println(prompt.getPromptReenterDomain());
+            }
+        }while(!isValidDomain);
+        return userInputDomain;
+    }
     private String getValidURL() throws MalformedURLException, URISyntaxException {
         String userInputURL;
         boolean isValidURL;
@@ -63,6 +79,9 @@ public class UserInput {
         return userInputTargetLanguage;
     }
 
+    public String getDomain(){
+        return this.domain;
+    }
     public String getURL (){
         return this.URL;
     }

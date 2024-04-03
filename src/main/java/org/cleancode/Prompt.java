@@ -2,6 +2,8 @@ package org.cleancode;
 
 public class Prompt {
 
+    private final String promptDomain = "Please enter a domain of a website to be crawled: ";
+    private final String promptReenterDomain = "Wrong domain format. Please reenter: ";
     private final String promptURL = "Please enter a URL of a website, you wish to be crawled: ";
     private final String promptReenterURL = "Wrong URL format. Try again.";
     private final String promptDepth = "Please enter the crawl depth: ";
@@ -9,6 +11,12 @@ public class Prompt {
     private final String promptTargetLanguage = "Please enter the target language: ";
     private final String promptReenterTargetLanguage = "Unknown language. Try again.";
 
+    public String getPromptDomain(){
+        return promptDomain;
+    }
+    public String getPromptReenterDomain(){
+        return promptReenterDomain;
+    }
     public String getPromptURL(){
         return promptURL;
     }
