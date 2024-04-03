@@ -1,4 +1,6 @@
 package org.cleancode;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 //TODO: Test the class with JUnit
@@ -12,7 +14,7 @@ public class UserInput {
     private Prompt prompt = new Prompt();
     private Scanner scanner = new Scanner(System.in);
 
-    private void setURL (){
+    private void setURL () throws MalformedURLException, URISyntaxException {
         this.URL= getValidURL();
     }
 
@@ -24,12 +26,12 @@ public class UserInput {
         this.targetLanguage= getValidTargetLanguage();
     }
 
-    private String getValidURL(){
+    private String getValidURL() throws MalformedURLException, URISyntaxException {
         String userInputURL;
         boolean isValidURL;
         do{
             userInputURL = scanner.next();
-            isValidURL= userInputValidation.validateURL(userInputURL);
+            isValidURL= userInputValidation.isValidURL(userInputURL);
             if(!isValidURL){
                 System.out.println(prompt.getPromptReenterURL());
             }
@@ -41,7 +43,7 @@ public class UserInput {
         boolean isValidDepth;
         do{
             userInputDepth = scanner.nextByte();
-            isValidDepth = userInputValidation.validateDepth(userInputDepth);
+            isValidDepth = userInputValidation.isValidDepth(userInputDepth);
             if(!isValidDepth){
                 System.out.println(prompt.getPromptReenterDepth());
             }
@@ -53,7 +55,7 @@ public class UserInput {
         boolean isValidTargetLanguage;
         do{
             userInputTargetLanguage = scanner.next();
-            isValidTargetLanguage = userInputValidation.validateTargetLanguage(userInputTargetLanguage);
+            isValidTargetLanguage = userInputValidation.isValidTargetLanguage(userInputTargetLanguage);
             if(!isValidTargetLanguage){
                 System.out.println(prompt.getPromptReenterTargetLanguage());
             }
