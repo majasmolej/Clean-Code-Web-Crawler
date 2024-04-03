@@ -1,6 +1,7 @@
 package org.cleancode;
 import java.util.Scanner;
 
+//TODO: Test the class with JUnit
 public class UserInput {
 
     private String URL;
@@ -12,6 +13,18 @@ public class UserInput {
     private Scanner scanner = new Scanner(System.in);
 
     private void setURL (){
+        this.URL= getValidURL();
+    }
+
+    private void setDepth(){
+        this.depth= getValidDepth();
+    }
+
+    private void setTargetLanguage(){
+        this.targetLanguage= getValidTargetLanguage();
+    }
+
+    private String getValidURL(){
         String userInputURL;
         boolean isValidURL;
         do{
@@ -21,10 +34,9 @@ public class UserInput {
                 System.out.println(prompt.getPromptReenterURL());
             }
         }while(!isValidURL);
-        this.URL=userInputURL;
+        return userInputURL;
     }
-
-    private void setDepth(){
+    private byte getValidDepth(){
         byte userInputDepth;
         boolean isValidDepth;
         do{
@@ -34,10 +46,9 @@ public class UserInput {
                 System.out.println(prompt.getPromptReenterDepth());
             }
         }while(!isValidDepth);
-        this.depth=userInputDepth;
+        return userInputDepth;
     }
-
-    private void setTargetLanguage(){
+    private String getValidTargetLanguage(){
         String userInputTargetLanguage;
         boolean isValidTargetLanguage;
         do{
@@ -47,7 +58,7 @@ public class UserInput {
                 System.out.println(prompt.getPromptReenterTargetLanguage());
             }
         }while(!isValidTargetLanguage);
-        this.targetLanguage=userInputTargetLanguage;
+        return userInputTargetLanguage;
     }
 
     public String getURL (){
