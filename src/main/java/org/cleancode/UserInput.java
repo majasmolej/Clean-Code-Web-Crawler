@@ -80,15 +80,19 @@ public class UserInput {
     }
 
     public String getDomain(){
+        setDomain();
         return this.domain;
     }
-    public String getURL (){
+    public String getURL () throws MalformedURLException, URISyntaxException {
+        setURL();
         return this.URL;
     }
     public byte getDepth(){
+        setDepth();
         return this.depth;
     }
     public String getTargetLanguage(){
+        setTargetLanguage();
         return this.targetLanguage;
     }
 

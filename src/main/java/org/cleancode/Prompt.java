@@ -14,9 +14,7 @@ public class Prompt {
     public String getPromptDomain(){
         return promptDomain;
     }
-    public String getPromptReenterDomain(){
-        return promptReenterDomain;
-    }
+    public String getPromptReenterDomain(){return promptReenterDomain;}
     public String getPromptURL(){
         return promptURL;
     }

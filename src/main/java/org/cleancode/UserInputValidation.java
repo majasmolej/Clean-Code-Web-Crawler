@@ -3,6 +3,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+//TODO: JUnit tests
 public class UserInputValidation {
 
     public boolean isValidDomain(String userInputDomain){
