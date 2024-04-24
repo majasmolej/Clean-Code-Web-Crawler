@@ -2,36 +2,36 @@ package org.cleancode;
 
 public class Prompt {
 
-    private final String promptDomain = "Please enter a domain of a website to be crawled: ";
-    private final String promptReenterDomain = "Wrong domain format. Please reenter: ";
-    private final String promptURL = "Please enter a URL of a website, you wish to be crawled: ";
-    private final String promptReenterURL = "Wrong URL format. Try again.";
-    private final String promptDepth = "Please enter the crawl depth: ";
-    private final String promptReenterDepth = "The depth should be in the range from 0 to 2. Try again.";
-    private final String promptTargetLanguage = "Please enter the target language: ";
-    private final String promptReenterTargetLanguage = "Unknown language. Try again.";
+    private static final String PROMPT_DOMAIN = "Please enter a domain of a website to be crawled: ";
+    private static final String PROMPT_REENTER_DOMAIN = "Wrong domain format. Please reenter: ";
+    private static final String PROMPT_URL = "Please enter a URL of a website, you wish to be crawled: ";
+    private static final String PROMPT_REENTER_URL = "Wrong URL format. Try again.";
+    private static final String PROMPT_DEPTH = "Please enter the crawl depth: ";
+    private static final String PROMPT_REENTER_DEPTH = "The depth should be in the range from 0 to 2. Try again.";
+    private static final String PROMPT_TARGET_LANGUAGE = "Please enter the target language: ";
+    private static final String PROMPT_REENTER_TARGET_LANGUAGE = "Unknown language. Try again.";
 
     public String getPromptDomain(){
-        return promptDomain;
+        return PROMPT_DOMAIN;
     }
-    public String getPromptReenterDomain(){return promptReenterDomain;}
+    public String getPromptReenterDomain(){return PROMPT_REENTER_DOMAIN;}
     public String getPromptURL(){
-        return promptURL;
+        return PROMPT_URL;
     }
     public String getPromptReenterURL(){
-        return promptReenterURL;
+        return PROMPT_REENTER_URL;
     }
     public String getPromptDepth(){
-        return promptDepth;
+        return PROMPT_DEPTH;
     }
     public String getPromptReenterDepth(){
-        return promptReenterDepth;
+        return PROMPT_REENTER_DEPTH;
     }
     public String getPromptTargetLanguage(){
-        return promptTargetLanguage;
+        return PROMPT_TARGET_LANGUAGE;
     }
     public String getPromptReenterTargetLanguage(){
-        return promptReenterTargetLanguage;
+        return PROMPT_REENTER_TARGET_LANGUAGE;
     }
 
 }
