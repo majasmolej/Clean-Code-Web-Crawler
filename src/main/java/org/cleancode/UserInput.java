@@ -4,7 +4,6 @@ import java.net.URISyntaxException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//TODO: Test the class with JUnit
 public class UserInput {
 
     private String domain;
