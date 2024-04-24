@@ -1,6 +1,7 @@
 package org.cleancode;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //TODO: Test the class with JUnit
@@ -11,9 +12,15 @@ public class UserInput {
     private byte depth;
     private String targetLanguage;
 
-    private UserInputValidation userInputValidation = new UserInputValidation();
-    private Prompt prompt = new Prompt();
-    private Scanner scanner = new Scanner(System.in);
+    private final UserInputValidation userInputValidation;
+    private final Prompt prompt;
+    private Scanner scanner;
+
+    public UserInput(UserInputValidation userInputValidation, Prompt prompt, Scanner scanner) {
+        this.userInputValidation = userInputValidation;
+        this.prompt = prompt;
+        this.scanner = scanner;
+    }
 
     private void setDomain(){
         this.domain=getValidDomain();
@@ -30,7 +37,7 @@ public class UserInput {
         this.targetLanguage= getValidTargetLanguage();
     }
 
-    private String getValidDomain(){
+    String getValidDomain(){
         String userInputDomain;
         boolean isValidDomain;
         do{
@@ -54,18 +61,25 @@ public class UserInput {
         }while(!isValidURL);
         return userInputURL;
     }
-    private byte getValidDepth(){
-        byte userInputDepth;
+    byte getValidDepth() {
+        byte userInputDepth = 0;
         boolean isValidDepth;
-        do{
-            userInputDepth = scanner.nextByte();
-            isValidDepth = userInputValidation.isValidDepth(userInputDepth);
-            if(!isValidDepth){
-                System.out.println(prompt.getPromptReenterDepth());
+        do {
+            try {
+                userInputDepth = scanner.nextByte();
+                isValidDepth = userInputValidation.isValidDepth(userInputDepth);
+                if (!isValidDepth) {
+                    System.out.println(prompt.getPromptReenterDepth());
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid byte value.");
+                isValidDepth = false;
+                scanner.next(); // Consume invalid input
             }
-        }while(!isValidDepth);
+        } while (!isValidDepth);
         return userInputDepth;
     }
+
     private String getValidTargetLanguage(){
         String userInputTargetLanguage;
         boolean isValidTargetLanguage;
