@@ -7,7 +7,7 @@ import java.net.URL;
 public class UserInputValidation {
 
     public boolean isValidDomain(String userInputDomain){
-        String domainRegex = "^(?:www\\.)?[a-zA-Z0-9-]+\\.[a-z]{2,}";
+        String domainRegex = "^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}$";
         return userInputDomain.matches(domainRegex);
     }
     public boolean isValidURL(String userInputURL) throws MalformedURLException, URISyntaxException {
