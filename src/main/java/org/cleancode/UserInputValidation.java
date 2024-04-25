@@ -10,7 +10,8 @@ public class UserInputValidation {
         String domainRegex = "^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}$";
         return userInputDomain.matches(domainRegex);
     }
-    public boolean isValidURL(String userInputURL) throws MalformedURLException, URISyntaxException {
+
+    public boolean isValidURL(String userInputURL) {
         if (isEmptyURL(userInputURL)) {
             return false;
         }else if(!matchesURLRegex(userInputURL)){
@@ -35,18 +36,17 @@ public class UserInputValidation {
         return userInputURL==null||userInputURL.trim().isEmpty();
     }
     private boolean matchesURLRegex (String userInputURL){
-        final String urlRegex = "^(http|https)://[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,3}(:\\d+)?/?([a-zA-Z0-9\\-._\\?,'/+&%$#=~])*[\\d\\w\\-._\\?,'/+&%$#=~]$";
+        final String urlRegex = "^(http|https)://(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(?::\\d+)?(?:/[a-zA-Z0-9\\-._\\?,'/+&%$#=~]*)*$";
         return userInputURL.matches(urlRegex);
     }
 
-    private boolean isValidURLwithJDK(String userInputURL) throws MalformedURLException, URISyntaxException{
-        try{
+    boolean isValidURLwithJDK(String userInputURL) {
+        try {
             new URL(userInputURL).toURI();
             return true;
-        }catch (MalformedURLException | URISyntaxException malformedURLException){
+        } catch (MalformedURLException | URISyntaxException ex) {
             return false;
         }
-
     }
 
 }
