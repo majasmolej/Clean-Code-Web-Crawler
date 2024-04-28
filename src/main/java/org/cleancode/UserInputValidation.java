@@ -23,7 +23,9 @@ public class UserInputValidation {
 
     //Accepted depth: from 0 (just website with the URL from UserInput) to 2
     public boolean isValidDepth(byte userInputDepth){
-        return userInputDepth >= 0 && userInputDepth <= 2;
+        String regex = "[012]";
+        String userInputDepthStr = Byte.toString(userInputDepth);
+        return userInputDepthStr.matches(regex);
     }
 
     //TODO: depending on the chosen API for translation, implement this method to accept only available target languages (and possibly add an extra method to convert them to a language code, f.e. "English" to "EN")
@@ -35,7 +37,7 @@ public class UserInputValidation {
         return userInputURL==null||userInputURL.trim().isEmpty();
     }
     private boolean matchesURLRegex (String userInputURL){
-        final String urlRegex = "^(http|https)://[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,3}(:\\d+)?/?([a-zA-Z0-9\\-._\\?,'/+&%$#=~])*[\\d\\w\\-._\\?,'/+&%$#=~]$";
+        final String urlRegex = "^(http|https)://[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,3}(:\\d+)?/?([a-zA-Z0-9\\-._?,'/+&%$#=~])*[\\w\\-._?,'/+&%$#=~]$";
         return userInputURL.matches(urlRegex);
     }
 
