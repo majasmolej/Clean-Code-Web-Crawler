@@ -1,13 +1,11 @@
 package test;
 
+import org.junit.jupiter.api.Test;
 import org.cleancode.Depth;
-import org.junit.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.NoSuchElementException;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DepthTest {
 

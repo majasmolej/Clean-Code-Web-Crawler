@@ -1,25 +1,24 @@
 package test;
 
 import org.cleancode.StartingWebsite;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
 
 public class StartingWebsiteTest {
 
     private static StartingWebsite startingWebsite;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         startingWebsite = new StartingWebsite();
     }
 
-    @After
+    @AfterEach
     public void tearDown(){
         startingWebsite=null;
     }
