@@ -23,7 +23,7 @@ public class StartingWebsite {
         return startingUrl;
     }
 
-    protected void prependHttpsIfNecessary() {
+    public void prependHttpsIfNecessary() {
         if (!startingUrl.startsWith("https://")) {
             startingUrl = "https://" + startingUrl;
         }
@@ -50,5 +50,12 @@ public class StartingWebsite {
             System.out.println("There was an error connecting to the URL: " + e.getMessage());
             return false;
         }
+    }
+
+    public void setStartingUrl(String url){
+        this.startingUrl=url;
+    }
+    public String getStartingUrl(){
+        return startingUrl;
     }
 }
