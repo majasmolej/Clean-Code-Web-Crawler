@@ -11,15 +11,11 @@ import java.util.List;
 public class DeeplAPIWrapper {
 
     private final String API_AUTH_KEY = "ecac6743-0147-be5d-5240-0fe60c397b08:fx";
-
     private Translator translator;
 
     public DeeplAPIWrapper (){
         this.translator=new Translator(API_AUTH_KEY);
     }
-
-
-
 
     public List<Language> getSupportedLanguages(){
         List <Language> languageList = new ArrayList<>();
