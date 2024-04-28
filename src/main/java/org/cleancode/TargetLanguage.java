@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class TargetLanguage {
 
-    private static String targetLanguage;
-    private static final Prompt prompt = new Prompt();
+    private String targetLanguage;
+    private final Prompt prompt = new Prompt();
 
-    public static String getTargetLanguageFromUser() {
+    public String getTargetLanguageFromUser() {
         String userInputTargetLanguage;
         do {
             userInputTargetLanguage = getUserInputLanguage();//original user input
@@ -25,7 +25,7 @@ public class TargetLanguage {
         return targetLanguage;
     }
 
-    private static boolean isValidTargetLanguage(String targetLanguage) {
+    public static boolean isValidTargetLanguage(String targetLanguage) {
         DeeplAPIWrapper deeplAPIWrapper = new DeeplAPIWrapper();
         List<Language> supportedAPILanguages = deeplAPIWrapper.getSupportedLanguages();
         ArrayList<String> supportedLanguages = deeplAPIWrapper.getSupportedLanguageNamesList(supportedAPILanguages);
@@ -36,19 +36,19 @@ public class TargetLanguage {
         return true;
     }
 
-    private static String getUserInputLanguage(){      //example output "English"
+    public static String getUserInputLanguage(){      //example output "English"
         Scanner scanner = new Scanner(System.in);
         String userInputLanguage = scanner.nextLine();
         return userInputLanguage;
     }
 
-    private static String getFormattedInputLanguage (String language){
+    public static String getFormattedInputLanguage (String language){
         String formattedInputLanguage = language.substring(0,1).toUpperCase()+language.substring(1).toLowerCase();
         return formattedInputLanguage;
     }
 
     //convertion is required by Deepl API
-    private static String getNationalLanguageFormat (String inputLanguageString){
+    public static String getNationalLanguageFormat(String inputLanguageString){
         String formattedLanguageString;
         if(inputLanguageString.equals("English")){
             formattedLanguageString = "English "+"(British)";
@@ -61,7 +61,4 @@ public class TargetLanguage {
         }
         return formattedLanguageString;
     }
-
-
-
 }
