@@ -21,7 +21,6 @@ public class UserInputValidation {
         return true;
     }
 
-    //Accepted depth: from 0 (just website with the URL from UserInput) to 2
     public boolean isValidDepth(byte userInputDepth){
         String regex = "[012]";
         String userInputDepthStr = Byte.toString(userInputDepth);
