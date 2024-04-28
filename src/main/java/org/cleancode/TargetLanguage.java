@@ -25,7 +25,7 @@ public class TargetLanguage {
         return targetLanguage;
     }
 
-    public static boolean isValidTargetLanguage(String targetLanguage) {
+    public boolean isValidTargetLanguage(String targetLanguage) {
         DeeplAPIWrapper deeplAPIWrapper = new DeeplAPIWrapper();
         List<Language> supportedAPILanguages = deeplAPIWrapper.getSupportedLanguages();
         ArrayList<String> supportedLanguages = deeplAPIWrapper.getSupportedLanguageNamesList(supportedAPILanguages);
@@ -36,19 +36,19 @@ public class TargetLanguage {
         return true;
     }
 
-    public static String getUserInputLanguage(){      //example output "English"
+    public String getUserInputLanguage(){      //example output "English"
         Scanner scanner = new Scanner(System.in);
         String userInputLanguage = scanner.nextLine();
         return userInputLanguage;
     }
 
-    public static String getFormattedInputLanguage (String language){
+    public String getFormattedInputLanguage (String language){
         String formattedInputLanguage = language.substring(0,1).toUpperCase()+language.substring(1).toLowerCase();
         return formattedInputLanguage;
     }
 
     //convertion is required by Deepl API
-    public static String getNationalLanguageFormat(String inputLanguageString){
+    public String getNationalLanguageFormat(String inputLanguageString){
         String formattedLanguageString;
         if(inputLanguageString.equals("English")){
             formattedLanguageString = "English "+"(British)";
