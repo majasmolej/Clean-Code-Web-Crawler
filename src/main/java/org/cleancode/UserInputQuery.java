@@ -10,24 +10,24 @@ public class UserInputQuery {
 
     public UserInputData getUserInputData(){
 
-        prompt.getPromptStartingWebsite();
+        System.out.println(prompt.getPromptStartingWebsite());
         userInputData.startingWebsite = startingWebsite.getStartingWebsiteFromUser();
 
-        prompt.getPromptDepth();
+        System.out.println(prompt.getPromptDepth());
         userInputData.maxDepth = depth.getDepthFromUser();
 
-        prompt.getPromptTargetLanguage();
+        System.out.println(prompt.getPromptTargetLanguage());
         userInputData.targetLanguage = targetLanguage.getTargetLanguageFromUser();
 
         return userInputData;
     }
 
     public String getUserInputDataSummary(){
-        return "_________________________________________________________________" +
+        return "_________________________________________________________________\n" +
                 "The user has selected the following options for the crawler: \n" +
                 "Starting website: "+userInputData.startingWebsite+"\n" +
                 "Crawling depth: "+userInputData.maxDepth+"\n" +
-                "Target language for translation: "+userInputData.targetLanguage+"."+
+                "Target language for translation: "+userInputData.targetLanguage+".\n"+
                 "________________________________________________________________";
     }
 
