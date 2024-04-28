@@ -7,27 +7,24 @@ import java.util.Scanner;
 
 public class TargetLanguage {
 
-    private String targetLanguage;
+    private static String targetLanguage;
+    private static final Prompt prompt = new Prompt();
 
     public static String getTargetLanguageFromUser() {
-        String targetLanguage;
+        String userInputTargetLanguage;
         do {
-            printPromptForTargetLanguage();
-
-            String userInput = getUserInputLanguage();//original user input
-
-            String formatedUserInput = getFormattedInputLanguage(userInput); //brings the string f.e. "CHInESE" to form "Chinese"
-
-            String normalizedLanguageVariant = getNationalLanguageFormat(formatedUserInput);// converts to an API specific form f.e. "Chinese (simplified)"
-
+            userInputTargetLanguage = getUserInputLanguage();//original user input
+            String formattedUserInput = getFormattedInputLanguage(userInputTargetLanguage); //brings the string f.e. "CHInESE" to form "Chinese"
+            String normalizedLanguageVariant = getNationalLanguageFormat(formattedUserInput);// converts to an API specific form f.e. "Chinese (simplified)"
             targetLanguage = normalizedLanguageVariant.trim();
 
+            if(!isValidTargetLanguage(targetLanguage)){
+                System.out.println(prompt.getPromptReenterTargetLanguage());
+            }
         } while (!isValidTargetLanguage(targetLanguage));
-
         return targetLanguage;
     }
 
-    //todo: add functionality to check if the chosen API supports the user defined target language
     private static boolean isValidTargetLanguage(String targetLanguage) {
         DeeplAPIWrapper deeplAPIWrapper = new DeeplAPIWrapper();
         List<Language> supportedAPILanguages = deeplAPIWrapper.getSupportedLanguages();
@@ -37,10 +34,6 @@ public class TargetLanguage {
             return false;
         }
         return true;
-    }
-
-    private static void printPromptForTargetLanguage(){
-        System.out.print("Please enter a target language: ");
     }
 
     private static String getUserInputLanguage(){      //example output "English"
