@@ -3,10 +3,10 @@ package org.cleancode;
 import java.util.Scanner;
 public class Depth {
     Scanner scanner = new Scanner(System.in);
-    private Prompt prompt = new Prompt();
+    private static final Prompt prompt = new Prompt();
+    private byte userInputDepth;
 
-    public byte getValidDepth(){
-        byte userInputDepth;
+    public byte getDepthFromUser(){
         boolean isValidDepth;
         do{
             userInputDepth = scanner.nextByte();
@@ -19,7 +19,7 @@ public class Depth {
         return userInputDepth;
     }
 
-    private boolean isValidDepth(String userInputDepth){
+    public boolean isValidDepth(String userInputDepth){
         String regex = "[012]";
         boolean result;
         if(isNumeric(userInputDepth)){
@@ -34,5 +34,4 @@ public class Depth {
         String regex = "\\d";
         return userInputDepth.matches(regex);
     }
-
 }
