@@ -2,26 +2,14 @@ package test;
 
 import org.cleancode.WebCrawler;
 import org.cleancode.Website;
-import org.jsoup.Connection;
-import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WebCrawlerTest {
-
-    @Mock
-    private Document document;
-
-    @Mock
-    private Connection connection;
-
-    @Mock
-    private Connection.Response response;
 
     private WebCrawler webCrawler;
     private String testUrl;
