@@ -11,14 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WebCrawlerTest {
 
-    private WebCrawler webCrawler;
-    private String testUrl;
-
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        testUrl = "https://example.com";
-        webCrawler = new WebCrawler(testUrl);
+        String testUrl = "https://example.com";
+        WebCrawler webCrawler = new WebCrawler(testUrl);
     }
 
     @Test
