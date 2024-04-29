@@ -6,7 +6,7 @@ public class ReportProducer {
     UserInputData userInputData;
     WebsiteNode rootNode;
     StringBuilder report = new StringBuilder();
-    ReportProducer(UserInputData userInputData, WebsiteNode rootNode) {
+    public ReportProducer(UserInputData userInputData, WebsiteNode rootNode) {
         this.userInputData = userInputData;
         this.rootNode = rootNode;
     }
