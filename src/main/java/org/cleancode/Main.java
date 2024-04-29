@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException, URISyntaxException {
+    public static void main(String[] args) {
         UserInputData userInputData;
         WebsiteNode rootNode;
 
