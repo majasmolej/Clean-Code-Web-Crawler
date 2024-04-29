@@ -2,25 +2,27 @@ package org.cleancode;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException, URISyntaxException {
-        Scanner scanner = new Scanner(System.in);
-        UserInputValidation userInputValidation = new UserInputValidation();
-        Prompt prompt = new Prompt();
+    public static void main(String[] args) {
+        UserInputData userInputData;
+        WebsiteNode rootNode;
 
-        UserInput userInput = new UserInput(userInputValidation, prompt, scanner);
+        UserInputQuery userInputQuery = new UserInputQuery();
+        userInputData = userInputQuery.getUserInputData();
 
-        System.out.println(prompt.getPromptDomain());
-        userInput.getDomain();
-        System.out.println(prompt.getPromptURL());
-        userInput.getURL();
-        System.out.println(prompt.getPromptDepth());
-        userInput.getDepth();
-        System.out.println(prompt.getPromptTargetLanguage());
-        userInput.getTargetLanguage();
+        CrawlingDispatcher crawlingDispatcher = new CrawlingDispatcher(userInputData);
+        crawlingDispatcher.crawlWeb();
+        rootNode = crawlingDispatcher.getRootNode();
 
+        TranslationDispatcher translator = new TranslationDispatcher(rootNode, userInputData.targetLanguage);
+        translator.translateWebsiteNodes();
 
+        ReportProducer resultProducer = new ReportProducer(userInputData, rootNode);
+        String mdString = resultProducer.makeMdString();
+
+        FileGenerator fileGenerator = new FileGenerator();
+        String mdFileName = "WebCrawler_Report.md";
+        fileGenerator.createMdFile(mdString, mdFileName);
     }
 }
