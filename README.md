@@ -1,5 +1,5 @@
 Build with maven.
-Tests available in folder 'test'
+Tests available in folder 'test'.
 Main entry point is the class 'Main.java', after running it, the user gets prompted to provide:
 1. the website to be crawled
 2. depth
