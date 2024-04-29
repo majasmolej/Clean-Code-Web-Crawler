@@ -3,9 +3,9 @@ package org.cleancode;
 import java.util.ArrayList;
 
     public class TranslationDispatcher {
-        private DeeplAPIWrapper deeplAPIWrapper;
-        private WebsiteNode rootNode;
-        private String targetLanguage;
+        private final DeeplAPIWrapper deeplAPIWrapper;
+        private final WebsiteNode rootNode;
+        private final String targetLanguage;
 
         public TranslationDispatcher(WebsiteNode rootNode, String targetLanguage) {
             this.rootNode = rootNode;
