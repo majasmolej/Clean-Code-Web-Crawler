@@ -1,4 +1,4 @@
-package test;
+package org.cleancode.test;
 
 import org.junit.jupiter.api.Test;
 import org.cleancode.Depth;

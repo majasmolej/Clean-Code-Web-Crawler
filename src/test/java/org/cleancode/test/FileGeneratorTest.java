@@ -1,4 +1,4 @@
-package test;
+package org.cleancode.test;
 
 import org.cleancode.FileGenerator;
 import org.junit.jupiter.api.AfterEach;

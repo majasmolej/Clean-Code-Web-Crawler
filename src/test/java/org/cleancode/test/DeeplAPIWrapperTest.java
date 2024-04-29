@@ -1,4 +1,4 @@
-package test;
+package org.cleancode.test;
 
 import com.deepl.api.Language;
 import org.cleancode.DeeplAPIWrapper;

@@ -1,4 +1,4 @@
-package test;
+package org.cleancode.test;
 
 import org.cleancode.ReportProducer;
 import org.cleancode.UserInputData;
